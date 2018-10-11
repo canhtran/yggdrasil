@@ -6,4 +6,3 @@ description: This is where I put the what I did
 
 To be first, I'm checking the sync between github and gitbook
 
-
