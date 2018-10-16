@@ -12,7 +12,7 @@ Vagrant preparation
 
 Vagrantfile
 
-```
+```text
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 Vagrant.configure("2") do |config|
@@ -27,24 +27,26 @@ Vagrant.configure("2") do |config|
   config.vm.provision "docker"
   config.vm.provision "shell", path: "kube-install.sh"
 end
-
 ```
 
 Install kubernetes
 
-```
+```text
 $ apt-get update && apt-get install -y apt-transport-https curl
 $ $ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 ```
-```
+
+```text
 cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb http://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 ```
-```
+
+```text
 $ apt-get update
 $ apt-get install -y kubelet kubeadm kubectl
 $ apt-get hold kubelet kubeadm kubectl
 ```
 
-Config 
+Config
+

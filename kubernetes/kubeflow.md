@@ -1,24 +1,27 @@
+---
+description: How to install kubeflow
+---
+
 # Kubeflow
 
-## Install kubeflow on ubuntu with kubeadm
+## Getting Super Powers
 
-- Create new namespace: kubeflow
-- Create a directory where you want to download the source to
-
-```
-mkdir ${KUBEFLOW_SRC}
-cd ${KUBEFLOW_SRC}
-export KUBEFLOW_TAG=v0.3.0
-curl https://raw.githubusercontent.com/kubeflow/kubeflow/${KUBEFLOW_TAG}/scripts/download.sh | bash
-```
-
-Deploy Kubeflow
-
-- Create a directory to store the configs
+Becoming a super hero is a fairly straight forward process:
 
 ```
-${KUBEFLOW_REPO}/scripts/kfctl.sh init ${KFAPP} --platform none
-cd ${KFAPP}
-${KUBEFLOW_REPO}/scripts/kfctl.sh generate k8s
-${KUBEFLOW_REPO}/scripts/kfctl.sh apply k8s
+$ give me super-powers
 ```
+
+{% hint style="info" %}
+ Super-powers are granted randomly so please submit an issue if you're not happy with yours.
+{% endhint %}
+
+Once you're strong enough, save the world:
+
+```
+// Ain't no code for that yet, sorry
+echo 'You got to trust me on this, I saved the world'
+```
+
+
+

@@ -5,4 +5,5 @@
 ## kubernetes
 
 * [Vagrant](kubernetes/vagrant.md)
+* [Kubeflow](kubernetes/kubeflow.md)
 
