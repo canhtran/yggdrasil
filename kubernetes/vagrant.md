@@ -1,18 +1,17 @@
 # Vagrant
 
-Using [Kubeadm](https://kubernetes.io/docs/setup/independent/install-kubeadm/) to install kubernetes cluster on vagrant
+Using Kubeadm to install kubernetes cluster on vagrant. The guide for installing kubeadm can be found [here](https://kubernetes.io/docs/setup/independent/install-kubeadm/).
 
-Vagrant preparation
+### Vagrant preparation
 
-1. bento/ubuntu-16.04
-2. private network as dhcp
-3. gui = false and memory = 2048
-4. swap off
-5. docker installed
+1. Box: bento/ubuntu-16.04
+2. Private network as dhcp
+3. Memory = 2048
+4. Docker
 
-Vagrantfile
+**Vagrantfile**
 
-```text
+```
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 Vagrant.configure("2") do |config|
@@ -29,15 +28,23 @@ Vagrant.configure("2") do |config|
 end
 ```
 
-Install kubernetes
+**Config box**
+
+Turn off swap
+
+```
+swapoff -a
+sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+```
+
+### Install Kubernetes cluster
+
+**Install kubernetes**
 
 ```text
 $ apt-get update && apt-get install -y apt-transport-https curl
 $ $ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-```
-
-```text
-cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+$ cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb http://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 ```
@@ -48,5 +55,38 @@ $ apt-get install -y kubelet kubeadm kubectl
 $ apt-get hold kubelet kubeadm kubectl
 ```
 
-Config
+**Config**
 
+Configure cgroup driver used by kubelet on Master Node
+
+```
+$ sed -i '0,/ExecStart=/s//Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs"\n&/' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+
+```
+
+Get IP Address
+
+```
+$ IPADDRESS=`ifconfig eth1 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 1`
+```
+
+Set up Kubeadm
+
+```
+$ kubeadm init --apiserver-cert-extra-sans=$IPADDRESS  --node-name $(hostname -s)
+```
+
+Set up for non root user
+
+```
+$ sudo --user=vagrant mkdir -p /home/vagrant/.kube
+$ cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
+$ chown $(id -u vagrant):$(id -g vagrant) /home/vagrant/.kube/config
+```
+
+Installing a pod network add-on
+
+```
+$ export KUBECONFIG=~vagrant/.kube/config
+$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+```
