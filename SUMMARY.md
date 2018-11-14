@@ -2,13 +2,19 @@
 
 * [Welcome to my Yggdrasil](README.md)
 
-## Data Engineering
+## Kubernetes
 
-* [Kubernetes](data-engineering/kubernetes/README.md)
-  * [Vagrant](data-engineering/kubernetes/vagrant.md)
-  * [Helm Chart](data-engineering/kubernetes/helm-chart.md)
-  * [Kubeconfig](data-engineering/kubernetes/kubeconfig.md)
-  * [Seldon-core](data-engineering/kubernetes/seldon-core.md)
-* [ETL](data-engineering/etl/README.md)
-  * [Hudi](data-engineering/etl/hudi.md)
+* [Kubeconfig](kubernetes/kubeconfig.md)
+* [Vagrant](kubernetes/vagrant.md)
+* [Helm Chart](kubernetes/helm-chart.md)
+* [Seldon-core](kubernetes/seldon-core.md)
+
+## Extract-Tranforms-Load
+
+* [Hudi](extract-tranforms-load/hudi.md)
+* [Airflow](extract-tranforms-load/airflow.md)
+
+## Big Data
+
+* [Spark](big-data/spark.md)
 
