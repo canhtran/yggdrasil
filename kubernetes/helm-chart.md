@@ -14,7 +14,7 @@ $ chmod 700 get_helm.sh
 $ ./get_helm.sh
 ```
 
-### Installation
+### Getting started
 
 Init helm and install Tiller (Tiller will be figured by reading Kubernetes configuration file `$HOME/.kube/config`)
 
