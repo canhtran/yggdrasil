@@ -1,6 +1,13 @@
 # K8s Tools and Command
 
-#### Kube-ps1
+### Tools
+
+- Helm
+- Kubectl
+- Kubectx
+- Kube-ps1 (to display kubernetes cluster)
+
+#### Config for Kube-ps1
 
 This tool use for display the current cluster.
 
