@@ -1,4 +1,4 @@
-# Kubeconfig
+# Kubectl and Kubeconfig
 
 #### Set up kubeconfig
 

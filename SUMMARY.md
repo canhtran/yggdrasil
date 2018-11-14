@@ -4,7 +4,7 @@
 
 ## Kubernetes
 
-* [Kubeconfig](kubernetes/kubeconfig.md)
+* [Kubectl and Kubeconfig](kubernetes/kubeconfig.md)
 * [Vagrant](kubernetes/vagrant.md)
 * [Helm Chart](kubernetes/helm-chart.md)
 * [Seldon-core](kubernetes/seldon-core.md)
