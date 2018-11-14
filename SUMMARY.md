@@ -4,7 +4,9 @@
 
 ## Kubernetes
 
-* [Kubectl and Kubeconfig](kubernetes/kubeconfig.md)
+* [K8s Tools and Command](kubernetes/k8s-tools-and-command/README.md)
+  * [Kubeconfig](kubernetes/k8s-tools-and-command/kubeconfig.md)
+  * [Commands](kubernetes/k8s-tools-and-command/commands.md)
 * [Vagrant](kubernetes/vagrant.md)
 * [Helm Chart](kubernetes/helm-chart.md)
 * [Seldon-core](kubernetes/seldon-core.md)
