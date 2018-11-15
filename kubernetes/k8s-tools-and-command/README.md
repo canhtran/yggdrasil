@@ -2,10 +2,10 @@
 
 ### Tools
 
-- Helm
-- Kubectl
-- Kubectx
-- Kube-ps1 (to display kubernetes cluster)
+- Helm ([https://docs.helm.sh/](https://docs.helm.sh/))
+- Kubectl ([https://kubernetes.io/docs/tasks/tools/install-kubectl/](https://kubernetes.io/docs/tasks/tools/install-kubectl/))
+- Kubectx ([https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx))
+- Kube-ps1 (to display kubernetes cluster) ([https://github.com/jonmosco/kube-ps1](https://github.com/jonmosco/kube-ps1))
 
 #### Config for Kube-ps1
 
