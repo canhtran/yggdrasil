@@ -28,4 +28,6 @@
 ## Big Data
 
 * [Spark](big-data/spark.md)
+* [Qubole](big-data/qubole.md)
+* [Hadoop](big-data/hadoop.md)
 
