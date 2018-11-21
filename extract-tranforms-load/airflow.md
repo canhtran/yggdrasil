@@ -2,9 +2,9 @@
 
 Example: [https://bitbucket.org/canhtran/techinasisa-test](https://bitbucket.org/canhtran/techinasisa-test)
 
-### Structure
+## Structure
 
-```
+```text
 Repo
  |- airflow
  | |- airflow.cfg
@@ -24,8 +24,7 @@ Repo
  |- README.md
  |- Dockerfile
  |- CHANGELOG.md
-
 ```
 
-### Configuration
+## Configuration
 

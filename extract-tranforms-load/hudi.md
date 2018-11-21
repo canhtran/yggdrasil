@@ -1,5 +1,5 @@
 ---
-description: 'https://uber.github.io/hudi/'
+description: Uber framework for load data from Kafka to Parquet format.
 ---
 
 # Hudi
