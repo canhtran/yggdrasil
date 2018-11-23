@@ -14,7 +14,7 @@
   * [deployment.yaml](kubernetes/helm-chart/deployment.yml.md)
   * [ingress.yaml](kubernetes/helm-chart/ingress.yaml.md)
   * [service.yaml](kubernetes/helm-chart/service.yaml.md)
-  * [secret.yaml](kubernetes/helm-chart/secret.yaml.md)
+  * [secrets.yaml](kubernetes/helm-chart/secret.yaml.md)
   * [secretClaim.yaml](kubernetes/helm-chart/secretclaim.yaml.md)
   * [configmap.yaml](kubernetes/helm-chart/configmap.yaml.md)
   * [\_helpers.tpl](kubernetes/helm-chart/_helpers.tpl.md)
