@@ -1,8 +1,8 @@
 # secretClaim.yaml
 
-![SecretClaim map](../../.gitbook/assets/image.png)
+![Process of secretClaim](../../.gitbook/assets/image%20%281%29.png)
 
-The `secretClaim` will be used by the `Vault Controller`. Based on the Path and Name, Vault controller will look inside the `Vault server`, get the secret and store in Kubernetes secrets.
+The `secretClaim` will be used by the `Vault Controller`. Based on the Path and Name, Vault controller will look inside the `Vault server`, get the secret and create K8s secrets. K8s secrets store the value which get from vault server.
 
 Example code for the secretClaim
 
