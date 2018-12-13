@@ -23,7 +23,8 @@
 ## Extract-Tranforms-Load
 
 * [Hudi](extract-tranforms-load/hudi.md)
-* [Airflow](extract-tranforms-load/airflow.md)
+* [Airflow](extract-tranforms-load/airflow/README.md)
+  * [Distributed airflow - local](extract-tranforms-load/airflow/distributed-airflow-local.md)
 
 ## Big Data
 
