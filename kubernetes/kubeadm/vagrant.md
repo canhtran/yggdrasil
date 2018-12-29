@@ -1,4 +1,4 @@
-# Vagrant
+# Ubuntu 16.04
 
 Using Kubeadm to install kubernetes cluster on vagrant. The guide for installing kubeadm can be found [here](https://kubernetes.io/docs/setup/independent/install-kubeadm/).
 
@@ -72,7 +72,7 @@ $ IPADDRESS=`ifconfig eth1 | grep "inet addr" | cut -d ':' -f 2 | cut -d ' ' -f 
 Set up Kubeadm
 
 ```text
-$ kubeadm init --apiserver-cert-extra-sans=$IPADDRESS  --node-name $(hostname -s)
+$ kubeadm init  --apiserver-advertise-address=$IPADDRESS --apiserver-cert-extra-sans=$IPADDRESS  --node-name $(hostname -s)
 ```
 
 Set up for non root user
