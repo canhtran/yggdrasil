@@ -104,9 +104,9 @@ $ kubeadm init --apiserver-advertise-address=192.168.99.100 --apiserver-cert-ext
 Set up for non root user
 
 ```bash
-$ sudo --user=vagrant mkdir -p /home/vagrant/.kube
-$ cp -i /etc/kubernetes/admin.conf /home/vagrant/.kube/config
-$ chown $(id -u vagrant):$(id -g vagrant) /home/vagrant/.kube/config
+$ mkdir -p $HOME/.kube
+$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 Installing a pod network add-on
