@@ -98,7 +98,7 @@ systemctl restart kubelet
 #### On master machine
 
 ```bash
-$ kubeadm init --apiserver-advertise-address=192.168.99.100 --apiserver-cert-extra-sans=192.168.99.100 --node-name $(hostname -s) --pod-network-cidr 10.32.0.0/12
+$ kubeadm init --apiserver-advertise-address=192.168.99.100 --apiserver-cert-extra-sans=192.168.99.100 --node-name $(hostname -s) --kubernetes-version=1.13.0 --pod-network-cidr=10.244.0.0/16 --apiserver-bind-port=443
 ```
 
 Set up for non root user
@@ -113,7 +113,40 @@ Installing a pod network add-on
 
 ```bash
 $ export KUBECONFIG=~vagrant/.kube/config
-$ kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')&env.IPALLOC_RANGE=10.32.0.0/12"
+$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+```
+
+#### Create service account for hem
+
+```bash
+cat > tiller-serviceaccount.yaml << EOF
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tiller
+  namespace: kube-system
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: tiller-clusterrolebinding
+subjects:
+- kind: ServiceAccount
+  name: tiller
+  namespace: kube-system
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: ""
+EOF
+
+$ kubectl create -f tiller-serviceaccount.yaml
+```
+
+#### Install helm tiller
+
+```text
+$ helm init --service-account tiller --upgrade
 ```
 
 #### On node machine
