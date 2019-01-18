@@ -172,7 +172,7 @@ spec:
 
 ### service.yaml
 
-```text
+```yaml
 {{- $componentName := .Values.componentName }}
 
 apiVersion: v1
@@ -199,7 +199,7 @@ spec:
 
 It will be replaced with `secretClaim` if we use the `vautl`
 
-```text
+```yaml
 # This secret is used to set the initial credentials of the node container.
 apiVersion: v1
 kind: Secret
@@ -226,7 +226,7 @@ The `secretClaim` will be used by the `Vault Controller`. Based on the Path and 
 
 Example code for the secretClaim
 
-```text
+```yaml
 {{- if .Values.vault.enable }}
 kind: SecretClaim
 apiVersion: vaultproject.io/v1
@@ -247,7 +247,7 @@ In Kubernetes, a `ConfigMap` is simply a container for storing configuration dat
 
 Because ConfigMaps are basic resources, they make a great starting point for us.
 
-```text
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:
