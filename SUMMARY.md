@@ -5,9 +5,8 @@
 
 ## Kubernetes
 
-* [K8s Tools and Command](kubernetes/k8s-tools-and-command/README.md)
-  * [Kubeconfig](kubernetes/k8s-tools-and-command/kubeconfig.md)
-  * [Commands](kubernetes/k8s-tools-and-command/commands.md)
+* [K8s Tools](kubernetes/k8s-tools.md)
+* [Commands](kubernetes/commands.md)
 * [Kubeadm](kubernetes/kubeadm/README.md)
   * [Ubuntu 16.04](kubernetes/kubeadm/vagrant.md)
   * [Centos 7](kubernetes/kubeadm/centos-7.md)
