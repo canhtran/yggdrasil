@@ -4,6 +4,27 @@ description: Tools that I most using
 
 # Engineering tools
 
+## iTerm2 and Oh-my-zsh
+
+iterm: [https://www.iterm2.com/](https://www.iterm2.com/)
+
+Oh-my-zsh: [https://github.com/robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+
+Theme: [https://github.com/denysdovhan/spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
+
+Auto-complete plugin for oh-my-zsh: [https://github.com/zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+
+{% code-tabs %}
+{% code-tabs-item title="~/.zshrc" %}
+```bash
+alias git='LANG=en_GB git'
+alias ll='ls -la'
+# plugins=(zsh-autosuggestions) cannot work on Mac so I have to use the command below
+source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
 ## NEOVIM
 
 Installation
