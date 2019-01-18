@@ -12,7 +12,7 @@
   * [Ubuntu 16.04](kubernetes/kubeadm/vagrant.md)
   * [Centos 7](kubernetes/kubeadm/centos-7.md)
 * [Helm Chart](kubernetes/helm-chart/README.md)
-  * [Yaml  files](kubernetes/helm-chart/yaml-files.md)
+  * [YAML  files](kubernetes/helm-chart/yaml-files.md)
 * [Seldon-core](kubernetes/seldon-core.md)
 
 ## Extract-Tranforms-Load

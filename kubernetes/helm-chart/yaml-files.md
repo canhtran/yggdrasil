@@ -1,4 +1,4 @@
-# Yaml  files
+# YAML  files
 
 ## Chart.yaml
 
