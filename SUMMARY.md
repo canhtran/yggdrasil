@@ -7,9 +7,7 @@
 
 * [K8s Tools](kubernetes/k8s-tools.md)
 * [Commands](kubernetes/commands.md)
-* [Kubeadm](kubernetes/kubeadm/README.md)
-  * [Ubuntu 16.04](kubernetes/kubeadm/vagrant.md)
-  * [Centos 7](kubernetes/kubeadm/centos-7.md)
+* [Kubeadm](kubernetes/kubeadm.md)
 * [Helm Chart](kubernetes/helm-chart/README.md)
   * [YAML  files](kubernetes/helm-chart/yaml-files.md)
 * [Seldon-core](kubernetes/seldon-core.md)

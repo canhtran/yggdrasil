@@ -1,21 +1,19 @@
 ---
-description: Multiple nodes for K8s
+description: 'https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/'
 ---
 
-# Centos 7
+# Kubeadm
 
 ## Vagrant preparation
 
-1. Box: centos/7
-2. Memory = 2048
-3. Docker
+Change box to `bento/ubuntu-16.04` for Ubuntu version
 
-**Vagrantfile**
-
+{% code-tabs %}
+{% code-tabs-item title="Centos" %}
 ```perl
-Vagrant.configure("2") do |config|
+ Vagrant.configure("2") do |config|
   config.vm.provision "docker"
-  config.vm.provision "shell", path: "k8s_.sh"
+  config.vm.provision "shell", path: "install_k8s.sh"
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.memory = "2048"
@@ -41,19 +39,20 @@ Vagrant.configure("2") do |config|
     k8s3.vm.network "private_network", ip: "192.168.99.102"
   end
 end
-
-
-
 ```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
 
-**k8s\_setup.sh**
+## install\_k8s.sh
 
+{% code-tabs %}
+{% code-tabs-item title="Centos" %}
 ```bash
 # disable SELINUX
 setenforce 0
 sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
 
-# Turn of swap
+# Turn off swap
 swapoff -a
 sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
 
@@ -89,11 +88,38 @@ EOF
 sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 systemctl daemon-reload
 systemctl restart kubelet
-
-
 ```
+{% endcode-tabs-item %}
 
-## Install Kubernetes cluster
+{% code-tabs-item title="Ubuntu" %}
+```perl
+# disable SELINUX
+setenforce 0
+sed -i --follow-symlinks 's/SELINUX=enforcing/SELINUX=disabled/g' /etc/sysconfig/selinux
+
+# turn off swap
+swapoff -a
+sed -i.bak -r 's/(.+ swap .+)/#\1/' /etc/fstab
+
+# add kubernetes to deb
+apt-get update && apt-get install -y apt-transport-https curl
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+
+# install packages
+apt-get update
+apt-get install -y kubelet==1.13.0 kubeadm==1.13.0 kubectl==1.13.0
+apt-get hold kubelet kubeadm kubectl
+
+# cgroup driver
+sed -i '0,/ExecStart=/s//Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs"\n&/' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+```
+{% endcode-tabs-item %}
+{% endcode-tabs %}
+
+## Install kubernetes cluster
 
 #### On master machine
 
@@ -116,7 +142,7 @@ $ export KUBECONFIG=~vagrant/.kube/config
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 ```
 
-#### Create service account for hem
+#### Create service account for helm \(optional\)
 
 ```bash
 cat > tiller-serviceaccount.yaml << EOF
@@ -154,27 +180,4 @@ $ helm init --service-account tiller --upgrade
 ```
 $ kubeadm join 192.168.99.100:6443 --token <token> --discovery-token-ca-cert-hash <ca-hash>
 ```
-
-
-
-#### Note from Github commend about the issues
-
-In our own Vagrant based devbox setup, we've worked around a couple of quirks \(which includes this issue\) by:
-
-Add `--pod-network-cidr 10.32.0.0/12` to the `kubeadm init` command and use `https://cloud.weave.works/k8s/net?k8s-version=v1.11.1&env.IPALLOC_RANGE=10.32.0.0/12` as the URL for fetching the `weave.yaml`.
-
-That'll fix the issue that the API server isn't reachable because the kube-proxy cannot distinguish between the pod IPs and the service IPs.
-
-The next issue you'll run into with a Vagrant setup is probably that your nodes all report 10.0.2.15 as internal IP to the API server \(do a `kubectl describe node` and look at the output\). That can be fixed by choosing predictable worker IPs \(for example starting with 192.168.100.10\) and adding that as an extra argument to the kubelet's systemd configuration. For us Saltstack creates `/etc/systemd/system/kubelet.service.d/20-kubelet-node-ip.conf` and sets
-
-```text
-[Service]
-        Environment="KUBELET_EXTRA_ARGS=--node-ip=192.168.100.10"
-```
-
-as the content. A reload of the unit is required but it depends on what and when the configuration is created.
-
-It took us a lot of time to debug these issues but we finally have a stable and reproducible multi node Vagrant cluster.
-
-A final note about debugging the Weave pods. We saved the weave.yaml file instead of directly applying it and replaced the `livenessProbe` with a `readinessProbe` in the `weave-net` DaemonSet to stop K8s from constantly reaping the Weave pods. It doesn't change the outcome \(node wasn't ready before and it's not after\) but it makes debugging a lot easier.
 
