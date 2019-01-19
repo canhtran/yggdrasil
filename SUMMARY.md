@@ -11,6 +11,7 @@
 * [Helm Chart](kubernetes/helm-chart/README.md)
   * [YAML  files](kubernetes/helm-chart/yaml-files.md)
 * [Seldon-core](kubernetes/seldon-core.md)
+* [Jupyterhub in kubeadm cluster](kubernetes/jupyterhub-in-kubeadm-cluster.md)
 
 ## Extract-Tranforms-Load
 

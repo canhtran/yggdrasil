@@ -60,9 +60,9 @@ $ kubectl create namespace <namspace>
 Get PersistentVolume / PersistentVolumeClaim / StorageClass
 
 ```bash
-# persistenceVolume
+# persistentVolume
 $ kubectl get pv
-# persistenceVolumeClaim
+# persistentVolumeClaim
 $ kubectl get pvc -n <namespace>
 # storageClass
 $ kubectl get sc
