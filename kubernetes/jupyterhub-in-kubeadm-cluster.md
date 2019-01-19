@@ -1,5 +1,5 @@
 ---
-description: Issues and Solution
+description: Issues and Solutions
 ---
 
 # Jupyterhub in kubeadm cluster

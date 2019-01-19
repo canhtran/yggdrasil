@@ -121,7 +121,7 @@ sed -i '0,/ExecStart=/s//Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupf
 
 ## Install kubernetes cluster
 
-#### On master machine
+### On master machine
 
 ```bash
 $ kubeadm init --apiserver-advertise-address=192.168.99.100 --apiserver-cert-extra-sans=192.168.99.100 --node-name $(hostname -s) --kubernetes-version=1.13.0 --pod-network-cidr=10.244.0.0/16 --apiserver-bind-port=443
@@ -169,15 +169,69 @@ EOF
 $ kubectl create -f tiller-serviceaccount.yaml
 ```
 
-#### Install helm tiller
+### Install helm tiller
 
 ```text
 $ helm init --service-account tiller --upgrade
 ```
 
-#### On node machine
+### Join node machine
 
 ```
 $ kubeadm join 192.168.99.100:6443 --token <token> --discovery-token-ca-cert-hash <ca-hash>
+```
+
+## SC / PV / PVC
+
+### Create Persistent Volume
+
+```yaml
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: hub-db-dir
+  labels:
+    type: local
+spec:
+  persistentVolumeReclaimPolicy: Recycle
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/jhub"
+```
+
+### Create Persistent Volume Claim
+
+```yaml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: hub-db-dir
+spec:
+  storageClassName: slow
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+```
+
+### Create Storage Class
+
+[https://raw.githubusercontent.com/kubernetes/kubernetes/release-1.13/cluster/addons/storage-class/local/default.yaml](https://raw.githubusercontent.com/kubernetes/kubernetes/release-1.13/cluster/addons/storage-class/local/default.yaml)
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  namespace: kube-system
+  name: standard
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+  labels:
+    addonmanager.kubernetes.io/mode: EnsureExists
+provisioner: kubernetes.io/host-path
 ```
 
