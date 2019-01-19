@@ -54,7 +54,18 @@ $ kubectl delete <pod-name>
 Create namespace
 
 ```text
-$ kubect create namespace <namspace>
+$ kubectl create namespace <namspace>
+```
+
+Get PersistentVolume / PersistentVolumeClaim / StorageClass
+
+```bash
+# persistenceVolume
+$ kubectl get pv
+# persistenceVolumeClaim
+$ kubectl get pvc -n <namespace>
+# storageClass
+$ kubectl get sc
 ```
 
 ## kubectx
