@@ -2,6 +2,7 @@
 
 * [Welcome to my Yggdrasil](README.md)
 * [Engineering tools](engineering-tool.md)
+* [Linux bash commands](linux-bash-commands.md)
 
 ## Kubernetes
 
