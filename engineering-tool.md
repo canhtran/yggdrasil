@@ -12,6 +12,8 @@ Oh-my-zsh: [https://github.com/robbyrussell/oh-my-zsh](https://github.com/robbyr
 
 Theme: [https://github.com/denysdovhan/spaceship-prompt](https://github.com/denysdovhan/spaceship-prompt)
 
+Octotree \(Github tree plugin\): [https://github.com/ovity/octotree](https://github.com/ovity/octotree)
+
 Auto-complete plugin for oh-my-zsh: [https://github.com/zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
 {% code-tabs %}
