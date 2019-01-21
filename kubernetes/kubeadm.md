@@ -124,22 +124,22 @@ sed -i '0,/ExecStart=/s//Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupf
 ### On master machine
 
 ```bash
-$ kubeadm init --apiserver-advertise-address=192.168.99.100 --apiserver-cert-extra-sans=192.168.99.100 --node-name $(hostname -s) --kubernetes-version=1.13.0 --pod-network-cidr=10.244.0.0/16 --apiserver-bind-port=443
+kubeadm init --apiserver-advertise-address=192.168.99.100 --apiserver-cert-extra-sans=192.168.99.100 --node-name $(hostname -s) --kubernetes-version=1.13.0 --pod-network-cidr=10.244.0.0/16 --apiserver-bind-port=443
 ```
 
 Set up for non root user
 
 ```bash
-$ mkdir -p $HOME/.kube
-$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 ```
 
 Installing a pod network add-on
 
 ```bash
-$ export KUBECONFIG=~vagrant/.kube/config
-$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+export KUBECONFIG=~vagrant/.kube/config
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 ```
 
 #### Create service account for helm \(optional\)
@@ -166,19 +166,19 @@ roleRef:
   apiGroup: ""
 EOF
 
-$ kubectl create -f tiller-serviceaccount.yaml
+kubectl create -f tiller-serviceaccount.yaml
 ```
 
 ### Install helm tiller
 
 ```text
-$ helm init --service-account tiller --upgrade
+helm init --service-account tiller --upgrade
 ```
 
 ### Join node machine
 
 ```
-$ kubeadm join 192.168.99.100:6443 --token <token> --discovery-token-ca-cert-hash <ca-hash>
+kubeadm join 192.168.99.100:6443 --token <token> --discovery-token-ca-cert-hash <ca-hash>
 ```
 
 ## SC / PV / PVC
