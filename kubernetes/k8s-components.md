@@ -54,3 +54,18 @@ metadata:
 provisioner: kubernetes.io/host-path
 ```
 
+## Nginx
+
+{% embed url="https://kubernetes.github.io/ingress-nginx/deploy/\#using-helm" %}
+
+Config file for Nodeport
+
+```yaml
+controller:
+  service:
+    type: NodePort
+    nodePorts:
+      http: 30000
+  replicaCount: 1
+```
+
