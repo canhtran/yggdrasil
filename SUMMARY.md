@@ -13,6 +13,7 @@
   * [YAML  files](kubernetes/helm-chart/yaml-files.md)
 * [Seldon-core](kubernetes/seldon-core.md)
 * [Jupyterhub in kubeadm cluster](kubernetes/jupyterhub-in-kubeadm-cluster.md)
+* [k8s components](kubernetes/k8s-components.md)
 
 ## Extract-Tranforms-Load
 
