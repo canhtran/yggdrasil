@@ -68,6 +68,36 @@ $ kubectl get pvc -n <namespace>
 $ kubectl get sc
 ```
 
+Get the cluster roles
+
+```bash
+$ kubectl get clusterroles
+```
+
+Create new user 
+
+```bash
+$ kubectl create clusterrolebinding jane --clusterrole=edit --user=jane
+```
+
+Get context
+
+```text
+$ kubectl config get-contexts
+```
+
+Create new context
+
+```bash
+$ kubectl config set-context <new-context-name> --cluster <cluster-from-old-context> --user <auth-info-from-old-context>
+```
+
+Delete the context
+
+```text
+$ kubectl config delete-context <old-context-name>
+```
+
 ## kubectx
 
 List all the kubeconfigs
