@@ -21,8 +21,7 @@ Auto-complete plugin for oh-my-zsh: [https://github.com/zsh-users/zsh-autosugges
 ```bash
 alias git='LANG=en_GB git'
 alias ll='ls -la'
-# plugins=(zsh-autosuggestions) cannot work on Mac so I have to use the command below
-source ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+plugins=(zsh-autosuggestions git kubectl) 
 ```
 {% endcode-tabs-item %}
 {% endcode-tabs %}
