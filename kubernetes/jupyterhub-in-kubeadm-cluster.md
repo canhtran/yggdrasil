@@ -34,3 +34,22 @@ hub:
   fsGid: 0
 ```
 
+## Issue \#3: Flannel Error Init:RunContainerError
+
+**Reason**: TBD
+
+```bash
+Flannel Error
+Init:RunContainerError  
+kube-flannel-ds-amd64-t4xsx            0/1     Init:OOMKilled
+```
+
+**Solution**: 
+
+```bash
+$ kubectl delete daemonset.apps/kube-flannel-ds-amd64 -n kube-system
+$ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
+```
+
+
+
