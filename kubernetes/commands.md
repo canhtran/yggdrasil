@@ -98,6 +98,12 @@ Delete the context
 $ kubectl config delete-context <old-context-name>
 ```
 
+Label the node
+
+```text
+kubectl label node hostname node-role.kubernetes.io/worker=worker
+```
+
 ## kubectx
 
 List all the kubeconfigs

@@ -181,5 +181,9 @@ helm init --service-account tiller --upgrade
 kubeadm join 192.168.99.100:6443 --token <token> --discovery-token-ca-cert-hash <ca-hash>
 ```
 
+### Join node to the available cluster
 
+```text
+kubeadm token create --print-join-command
+```
 
