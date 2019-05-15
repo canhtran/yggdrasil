@@ -4,6 +4,7 @@
 * [Linux bash commands](linux-bash-commands.md)
 * [Engineering tools](engineering-tool.md)
 * [My Reading list](my-reading-list.md)
+* [Python profiliers](python-profiliers.md)
 
 ## Kubernetes
 
