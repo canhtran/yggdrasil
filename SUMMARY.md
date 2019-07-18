@@ -4,7 +4,10 @@
 * [Linux bash commands](linux-bash-commands.md)
 * [Engineering tools](engineering-tool.md)
 * [My Reading list](my-reading-list.md)
-* [Python profiliers](python-profiliers.md)
+
+## Python
+
+* [Python profiliers](python/python-profiliers.md)
 
 ## Kubernetes
 
@@ -13,9 +16,9 @@
 * [Kubeadm](kubernetes/kubeadm.md)
 * [Helm Chart](kubernetes/helm-chart/README.md)
   * [YAML  files](kubernetes/helm-chart/yaml-files.md)
-* [Seldon-core](kubernetes/seldon-core.md)
 * [Jupyterhub in kubeadm cluster](kubernetes/jupyterhub-in-kubeadm-cluster.md)
 * [k8s components](kubernetes/k8s-components.md)
+* [Issues](kubernetes/issues.md)
 
 ## Extract-Tranforms-Load
 

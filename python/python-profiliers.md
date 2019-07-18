@@ -22,5 +22,5 @@ gprof2dot -f pstats myLog.profile -o callingGraph.dot
 
 Open with graphViz to visualize the graph
 
-![Example graph image](.gitbook/assets/image%20%283%29.png)
+![Example graph image](../.gitbook/assets/image%20%283%29.png)
 
