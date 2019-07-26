@@ -1,6 +1,6 @@
 # k8s components
 
-## SC / PV / PVC
+## Storage Class, Persistent Volume, Persistent Volume Claim
 
 ### Create Persistent Volume
 
@@ -54,18 +54,9 @@ metadata:
 provisioner: kubernetes.io/host-path
 ```
 
-## Nginx
+## Ingress with Nginx
 
-{% embed url="https://kubernetes.github.io/ingress-nginx/deploy/\#using-helm" %}
+{% embed url="https://github.com/kubernetes/ingress-nginx/blob/master/docs/deploy/index.md" %}
 
-Config file for Nodeport
 
-```yaml
-controller:
-  service:
-    type: NodePort
-    nodePorts:
-      http: 30000
-  replicaCount: 1
-```
 

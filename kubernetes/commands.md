@@ -101,7 +101,13 @@ $ kubectl config delete-context <old-context-name>
 Label the node
 
 ```text
-kubectl label node hostname node-role.kubernetes.io/worker=worker
+$ kubectl label node hostname node-role.kubernetes.io/worker=worker
+```
+
+Expose deployment to services
+
+```text
+$ kubectl expose deployment <deployment-name> --type=LoadBalancer --port=<port>
 ```
 
 ## kubectx
