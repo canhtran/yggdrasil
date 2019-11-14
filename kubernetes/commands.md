@@ -51,6 +51,12 @@ Delete pod
 $ kubectl delete <pod-name>
 ```
 
+Delete multiple pods
+
+```text
+for p in $(kubectl get pods -n <namespace> | grep <pod-status> | awk '{print $1}'); do kubectl delete pod $p -n <namespace> --grace-period=0 --force;done
+```
+
 Create namespace
 
 ```text

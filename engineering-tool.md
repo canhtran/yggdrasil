@@ -16,15 +16,13 @@ Octotree \(Github tree plugin\): [https://github.com/ovity/octotree](https://git
 
 Auto-complete plugin for oh-my-zsh: [https://github.com/zsh-users/zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
-{% code-tabs %}
-{% code-tabs-item title="~/.zshrc" %}
+{% code title="~/.zshrc" %}
 ```bash
 alias git='LANG=en_GB git'
 alias ll='ls -la'
 plugins=(zsh-autosuggestions git kubectl) 
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## NEOVIM
 

@@ -8,8 +8,7 @@ description: 'https://kubernetes.io/docs/setup/independent/create-cluster-kubead
 
 Change box to `bento/ubuntu-16.04` for Ubuntu version
 
-{% code-tabs %}
-{% code-tabs-item title="Centos" %}
+{% code title="Centos" %}
 ```perl
  Vagrant.configure("2") do |config|
   config.vm.provision "docker"
@@ -40,13 +39,12 @@ Change box to `bento/ubuntu-16.04` for Ubuntu version
   end
 end
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endcode %}
 
 ## install\_k8s.sh
 
-{% code-tabs %}
-{% code-tabs-item title="Centos" %}
+{% tabs %}
+{% tab title="Centos" %}
 ```bash
 # disable SELINUX
 setenforce 0
@@ -89,9 +87,9 @@ sed -i 's/cgroup-driver=systemd/cgroup-driver=cgroupfs/g' /etc/systemd/system/ku
 systemctl daemon-reload
 systemctl restart kubelet
 ```
-{% endcode-tabs-item %}
+{% endtab %}
 
-{% code-tabs-item title="Ubuntu" %}
+{% tab title="Ubuntu" %}
 ```perl
 # disable SELINUX
 setenforce 0
@@ -116,8 +114,8 @@ apt-get hold kubelet kubeadm kubectl
 # cgroup driver
 sed -i '0,/ExecStart=/s//Environment="KUBELET_EXTRA_ARGS=--cgroup-driver=cgroupfs"\n&/' /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
 ```
-{% endcode-tabs-item %}
-{% endcode-tabs %}
+{% endtab %}
+{% endtabs %}
 
 ## Install kubernetes cluster
 
