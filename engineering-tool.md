@@ -4,6 +4,21 @@ description: Tools that I most using
 
 # Engineering tools
 
+## Bash command
+
+**Partition and disks**
+
+```bash
+# list all block device
+$ lsblk
+# list hard disks
+$ fdisk -l
+# format partition
+$ mkfs.ext3 /dev/xvdf
+# mount partition
+$ mount /dev/xvdf /data
+```
+
 ## iTerm2 and Oh-my-zsh
 
 iterm: [https://www.iterm2.com/](https://www.iterm2.com/)

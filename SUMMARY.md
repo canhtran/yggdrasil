@@ -1,9 +1,7 @@
 # Table of contents
 
 * [Welcome to my Yggdrasil](README.md)
-* [Linux bash commands](linux-bash-commands.md)
 * [Engineering tools](engineering-tool.md)
-* [My Reading list](my-reading-list.md)
 
 ## Python
 
@@ -22,7 +20,6 @@
 
 ## Extract-Tranforms-Load
 
-* [Hudi](extract-tranforms-load/hudi.md)
 * [Airflow](extract-tranforms-load/airflow/README.md)
   * [Distributed airflow - local](extract-tranforms-load/airflow/distributed-airflow-local.md)
 
