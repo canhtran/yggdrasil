@@ -2,7 +2,7 @@
 description: Issues and Solutions
 ---
 
-# Jupyterhub in kubeadm cluster
+# Jupyterhub
 
 ## Issue \#1: hub service is pending
 

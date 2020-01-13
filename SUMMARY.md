@@ -9,7 +9,7 @@
 
 ## Engineering <a id="extract-tranforms-load"></a>
 
-* [Jupyterhub in kubeadm cluster](extract-tranforms-load/jupyterhub-in-kubeadm-cluster.md)
+* [Jupyterhub](extract-tranforms-load/jupyterhub.md)
 * [Airflow](extract-tranforms-load/airflow/README.md)
   * [Airflow on K8s](extract-tranforms-load/airflow/airflow-on-k8s.md)
   * [Distributed airflow - local](extract-tranforms-load/airflow/distributed-airflow-local.md)
