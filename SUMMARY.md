@@ -13,6 +13,7 @@
 * [Airflow](extract-tranforms-load/airflow/README.md)
   * [Airflow on K8s](extract-tranforms-load/airflow/airflow-on-k8s.md)
   * [Distributed airflow - local](extract-tranforms-load/airflow/distributed-airflow-local.md)
+* [Spark](extract-tranforms-load/spark.md)
 
 ## Kubernetes
 
