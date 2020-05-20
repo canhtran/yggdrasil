@@ -20,8 +20,7 @@
 * [K8s Tools](kubernetes/k8s-tools.md)
 * [Commands](kubernetes/commands.md)
 * [Kubeadm](kubernetes/kubeadm.md)
-* [Helm Chart](kubernetes/helm-chart/README.md)
-  * [YAML  files](kubernetes/helm-chart/yaml-files.md)
+* [Helm Chart](kubernetes/helm-chart.md)
 * [k8s components](kubernetes/k8s-components.md)
 * [Issues](kubernetes/issues.md)
 
