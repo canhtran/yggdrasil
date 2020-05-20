@@ -33,6 +33,12 @@ Port forwarding
 $ kubectl port-forward <pod-name> 5000:5000 -n data
 ```
 
+Cordon the node so that new pod wont schedule on it
+
+```text
+$ kubectl cordon <node>
+```
+
 Access to pod
 
 ```text
